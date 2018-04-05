@@ -104,6 +104,7 @@ if (!class_exists('SimpleModalLogin')) {
 
 			//Actions
 			add_action('admin_menu', array(&$this, 'admin_menu_link'));
+            add_action('user_register', array(&$this, 'user_full_name'));
 
 			if (!is_admin()) {
 				// attempt to set the test cookie so that the user does not receive the WP cookie error
@@ -592,6 +593,20 @@ if (!class_exists('SimpleModalLogin')) {
 		function save_admin_options(){
 			return update_option($this->optionsName, $this->options);
 		}
+
+        /**
+         * Saves the user’s first/last names to the database
+         * @param integer $user_id WP user ID
+         */
+        function user_full_name( $user_id ) {
+            if ( ! empty( $_POST['first_name'] ) ) {
+                update_user_meta( $user_id, 'first_name', sanitize_text_field( $_POST['first_name'] ) );
+            }
+            if ( ! empty( $_POST['last_name'] ) ) {
+                update_user_meta( $user_id, 'last_name', sanitize_text_field( $_POST['last_name'] ) );
+            }
+        }
+
 	}
 }
 
