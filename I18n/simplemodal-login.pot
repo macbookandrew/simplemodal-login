@@ -188,11 +188,11 @@ msgid "<strong>ERROR</strong>: All fields are required."
 msgstr ""
 
 #: simplemodal-login.php:490
-msgid "E-mail"
+msgid "Email Address"
 msgstr ""
 
 #: simplemodal-login.php:503
-msgid "A password will be e-mailed to you."
+msgid "A password will be emailed to you."
 msgstr ""
 
 #: simplemodal-login.php:507 simplemodal-login.php:559
@@ -204,7 +204,7 @@ msgid "Reset Password"
 msgstr ""
 
 #: simplemodal-login.php:544
-msgid "Username or E-mail:"
+msgid "Username or Email Address:"
 msgstr ""
 
 #: simplemodal-login.php:556

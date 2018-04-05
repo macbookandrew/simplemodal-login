@@ -491,7 +491,7 @@ if (!class_exists('SimpleModalLogin')) {
 				site_url('wp-login.php?action=register', 'login_post'),
 				__('Register', 'simplemodal-login'),
 				__('Username', 'simplemodal-login'),
-				__('E-mail', 'simplemodal-login')
+				__('Email Address', 'simplemodal-login')
 			);
 
 			ob_start();
@@ -506,7 +506,7 @@ if (!class_exists('SimpleModalLogin')) {
 	</p>
 	<p class="nav">
 		<a class="simplemodal-login" href="%s">%s</a>',
-				__('A password will be e-mailed to you.', 'simplemodal-login'),
+				__('A password will be emailed to you.', 'simplemodal-login'),
 				__('Register', 'simplemodal-login'),
 				__('Cancel', 'simplemodal-login'),
 				site_url('wp-login.php', 'login'),
@@ -547,7 +547,7 @@ if (!class_exists('SimpleModalLogin')) {
 		</p>',
 				site_url('wp-login.php?action=lostpassword', 'login_post'),
 				__('Reset Password', 'simplemodal-login'),
-				__('Username or E-mail:', 'simplemodal-login')
+				__('Username or Email Address:', 'simplemodal-login')
 			);
 
 			ob_start();
