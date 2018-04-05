@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: SimpleModal Login
-Plugin URI: http://www.studiofuel.com/simplemodal-login/
+Plugin Name: SimpleModal Login Upgraded
+Plugin URI: https://github.com/macbookandrew/simplemodal-login
 Description: A modal Ajax login, registration, and password reset feature for WordPress which utilizes jQuery and the SimpleModal jQuery plugin.
-Version: 1.1
+Version: 1.2
 Author: Noah Cinquini
 Author URI: http://www.studiofuel.com
 */
@@ -27,6 +27,10 @@ Author URI: http://www.studiofuel.com
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 /**
  * Set the wp-content and plugin urls/paths
  */
@@ -44,7 +48,7 @@ if (!class_exists('SimpleModalLogin')) {
 		/**
 		 * @var string The plugin version
 		 */
-		var $version = '1.1';
+		var $version = '1.2';
 
 		/**
 		 * @var string The plugin version
