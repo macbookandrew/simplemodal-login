@@ -350,11 +350,11 @@ if (!class_exists('SimpleModalLogin')) {
 		<div class="simplemodal-login-fields">
 		<p>
 			<label>%s<br />
-			<input type="text" name="log" class="user_login input" value="" size="20" tabindex="10" /></label>
+			<input type="text" name="log" placeholder="Email Address" class="user_login input" value="" size="20" tabindex="10" /></label>
 		</p>
 		<p>
 			<label>%s<br />
-			<input type="password" name="pwd" class="user_pass input" value="" size="20" tabindex="20" /></label>
+			<input type="password" name="pwd" placeholder="Password" class="user_pass input" value="" size="20" tabindex="20" /></label>
 		</p>',
 				site_url('wp-login.php', 'login_post'),
 				__('Login', 'simplemodal-login'),
@@ -496,7 +496,7 @@ if (!class_exists('SimpleModalLogin')) {
     <input type="hidden" name="user_login" />
 	<p>
 		<label>%s<br />
-		<input type="text" name="user_email" class="user_email input" value="" size="25" tabindex="20" /></label>
+		<input type="text" name="user_email" placeholder="Email Address" class="user_email input" value="" size="25" tabindex="20" /></label>
 	</p>',
 				site_url('wp-login.php?action=register', 'login_post'),
 				__('Register', 'simplemodal-login'),
@@ -554,7 +554,7 @@ if (!class_exists('SimpleModalLogin')) {
 		<div class="simplemodal-login-fields">
 		<p>
 			<label>%s<br />
-			<input type="text" name="user_login" class="user_login input" value="" size="20" tabindex="10" /></label>
+			<input type="text" name="user_login" placeholder="Email Address" class="user_login input" value="" size="20" tabindex="10" /></label>
 		</p>',
 				site_url('wp-login.php?action=lostpassword', 'login_post'),
 				__('Reset Password', 'simplemodal-login'),
