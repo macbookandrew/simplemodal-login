@@ -44,6 +44,10 @@ jQuery(function ($) {
 				return false;
 			});
 
+            $('#simplemodal-login-form #registerform input').on('keyup', function(form) {
+                SimpleModalLogin.makeUserName($('#simplemodal-login-form #registerform'));
+            });
+
 			if (SimpleModalLoginL10n['shortcut'] === "true") {
 				$(document).bind('keydown.simplemodal-login', SimpleModalLogin.keydown);
 			}
@@ -194,7 +198,15 @@ jQuery(function ($) {
 				.before($('<div id="login_error"></div>').html(
 					keys.join('<br/>')
 				));
-		}
+		},
+        makeUserName: function(form) {
+            var first = $(form).find('input[name="first_name"]'),
+                last = $(form).find('input[name="last_name"]'),
+                user = $(form).find('input[name="user_login"]'),
+                username = first.val().toLowerCase() + last.val().toLowerCase();
+
+            user.val(username);
+        }
 	};
 
 	SimpleModalLogin.init();

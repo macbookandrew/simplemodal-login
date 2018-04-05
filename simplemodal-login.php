@@ -482,15 +482,21 @@ if (!class_exists('SimpleModalLogin')) {
 	<div class="simplemodal-login-fields">
 	<p>
 		<label>%s<br />
-		<input type="text" name="user_login" class="user_login input" value="" size="20" tabindex="10" /></label>
+		<input type="text" name="first_name" placeholder="First Name" class="user_login input" value="" size="20" tabindex="10" /></label>
 	</p>
+	<p>
+		<label>%s<br />
+		<input type="text" name="last_name" placeholder="Last Name" class="user_login input" value="" size="20" tabindex="10" /></label>
+	</p>
+    <input type="hidden" name="user_login" />
 	<p>
 		<label>%s<br />
 		<input type="text" name="user_email" class="user_email input" value="" size="25" tabindex="20" /></label>
 	</p>',
 				site_url('wp-login.php?action=register', 'login_post'),
 				__('Register', 'simplemodal-login'),
-				__('Username', 'simplemodal-login'),
+				__('First Name', 'simplemodal-login'),
+				__('Last Name', 'simplemodal-login'),
 				__('Email Address', 'simplemodal-login')
 			);
 
