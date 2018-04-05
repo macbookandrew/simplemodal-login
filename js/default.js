@@ -1,7 +1,7 @@
 /*
  * SimpleModal Login
  * Theme: default
- * Copyright (c) 2012 Eric Martin http://www.ericmmartin.com
+ * Copyright 2014 Studio Fuel (http://www.studiofuel.com)
  */
 jQuery(function ($) {
 	var SimpleModalLogin = {

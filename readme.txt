@@ -1,10 +1,11 @@
 === SimpleModal Login ===
-Contributors: emartin24 
-Donate link: http://www.ericmmartin.com/donate/
+Contributors: StudioFuel, emartin24
 Tags: ajax, login, modal, admin, password, username, register, manage, redirect, widget, plugin
 Requires at least: 2.5.0
-Tested up to: 3.4.2
-Stable tag: 1.0.7
+Tested up to: 4.0.1
+Stable tag: 1.1
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 SimpleModal Login provides a modal Ajax login, registration, and password reset feature for WordPress which utilizes jQuery and the SimpleModal jQuery
 
@@ -150,18 +151,6 @@ Here are complete working examples for each of the three filters:
 * simplemodal_reset_form: http://pastebin.com/jpd1RiP9
 
 
-= Can I remove the "Powered by SimpleModal Login" link?  =
-
-Yup, see below. A donation is appreciated, but not required ;)
-
-
-= How can I remove the "Powered by SimpleModal Login" link?  =
-
-Just add the following to your `style.css` file:
-
-    .simplemodal-login-credit {display:none;}
-
-
 *Have a question, comments or feature requests? Be sure to let me know.*
 
 == Screenshots ==
@@ -178,6 +167,11 @@ Just add the following to your `style.css` file:
 
 
 == Changelog ==
+
+= 1.1 =
+* Plugin ownership transfered to Studio Fuel (http://studiofuel.com)
+* Added TEST_COOKIE check to prevent the WordPress cookie error message when logging in
+* Tested plugin against WordPress 4.0.1
 
 = 1.0.7 =
 * Upgraded to SimpleModal 1.4.3 (requires jQuery 1.3+)

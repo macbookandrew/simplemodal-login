@@ -1,14 +1,16 @@
 <?php
 /*
 Plugin Name: SimpleModal Login
-Plugin URI: http://www.ericmmartin.com/projects/simplemodal-login/
+Plugin URI: http://www.studiofuel.com/simplemodal-login/
 Description: A modal Ajax login, registration, and password reset feature for WordPress which utilizes jQuery and the SimpleModal jQuery plugin.
-Version: 1.0.7
-Author: Eric Martin
-Author URI: http://www.ericmmartin.com
+Version: 1.1
+Author: Noah Cinquini
+Author URI: http://www.studiofuel.com
 */
 
-/*  Copyright 2012 Eric Martin (eric@ericmmartin.com)
+/*  Copyright 2014 Studio Fuel (http://www.studiofuel.com)
+
+    Plugin originally created by Eric Martin (http://www.ericmmartin.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -42,7 +44,7 @@ if (!class_exists('SimpleModalLogin')) {
 		/**
 		 * @var string The plugin version
 		 */
-		var $version = '1.0.7';
+		var $version = '1.1';
 
 		/**
 		 * @var string The plugin version
@@ -104,6 +106,12 @@ if (!class_exists('SimpleModalLogin')) {
 			add_action('admin_menu', array(&$this, 'admin_menu_link'));
 
 			if (!is_admin()) {
+				// attempt to set the test cookie so that the user does not receive the WP cookie error
+				$secure = ( 'https' === parse_url( site_url(), PHP_URL_SCHEME ) && 'https' === parse_url( home_url(), PHP_URL_SCHEME ) );
+				setcookie( TEST_COOKIE, 'WP Cookie check', 0, COOKIEPATH, COOKIE_DOMAIN, $secure );
+				if ( SITECOOKIEPATH != COOKIEPATH )
+					setcookie( TEST_COOKIE, 'WP Cookie check', 0, SITECOOKIEPATH, COOKIE_DOMAIN, $secure );
+				
 				add_filter('login_redirect', array(&$this, 'login_redirect'), 5, 3);
 				add_filter('register', array(&$this, 'register'));
 				add_filter('loginout', array(&$this, 'login_loginout'));
@@ -192,23 +200,20 @@ if (!class_exists('SimpleModalLogin')) {
 <p><?php _e('SimpleModal Login allows you to create your own themes.', 'simplemodal-login'); ?></p>
 <p><?php _e('To create a new theme you\'ll need to add two files under the <code>simplemodal-login</code> plugin directory: <code>css/THEME.css</code> and <code>js/THEME.js</code>. Replace THEME with the name you would like to use. I suggest using one of the existing themes as a template.', 'simplemodal-login'); ?></p>
 <h2><?php _e('Need Support?', 'simplemodal-login'); ?></h2>
-<p><?php printf(__('For questions, issues or feature requests, please post them in the %s and make sure to tag the post with simplemodal-login.', 'simplemodal-login'), '<a href="http://wordpress.org/tags/simplemodal-login?forum_id=10#postform">WordPress Forum</a>'); ?></p>
-<h2><?php _e('Like To Contribute?', 'simplemodal-login'); ?></h2>
+<p><?php printf(__('For questions, issues or feature requests, please post them in the %s and make sure to tag the post with simplemodal-login.', 'simplemodal-login'), '<a href="https://wordpress.org/support/plugin/simplemodal-login">WordPress Forum</a>'); ?></p>
+<h2><?php _e('Want To Contribute?', 'simplemodal-login'); ?></h2>
 <p><?php _e('If you would like to contribute, the following is a list of ways you can help:', 'simplemodal-login'); ?></p>
 <ul>
 	<li>&raquo; <?php _e('Translate SimpleModal Login into your language', 'simplemodal-login'); ?></li>
 	<li>&raquo; <?php _e('Blog about or link to SimpleModal Login so others can find out about it', 'simplemodal-login'); ?></li>
 	<li>&raquo; <?php _e('Report issues, provide feedback, request features, etc.', 'simplemodal-login'); ?></li>
-	<li>&raquo; <a href='http://wordpress.org/extend/plugins/simplemodal-login/'><?php _e('Rate SimpleModal Login on the WordPress Plugins Page', 'simplemodal-login'); ?></a></li>
-	<li>&raquo; <a href='https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=KUL9VQ6U5VYCE&lc=US&item_name=Eric%20Martin%20%28ericmmartin%2ecom%29&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted'><?php _e('Make a donation', 'simplemodal-login'); ?></a></li>
+	<li>&raquo; <a href='https://wordpress.org/support/view/plugin-reviews/simplemodal-login'><?php _e('Review SimpleModal Login on the WordPress Plugins Page', 'simplemodal-login'); ?></a></li>
 </ul>
 <h2><?php _e('Other Links', 'simplemodal-login'); ?></h2>
 <ul>
-	<li>&raquo; <a href='https://github.com/ericmmartin/simplemodal-login'>SimpleModal Login</a> on GitHub</li>
-	<li>&raquo; <a href='http://twitter.com/ericmmartin'>@ericmmartin</a> on Twitter</li>
-	<li>&raquo; <a href='http://www.ericmmartin.com'>ericmmartin.com</a></li>
-	<li>&raquo; <a href='http://www.ericmmartin.com/projects/smcf/'>SimpleModal Contact Form (SMCF)</a> - an Ajax powered modal contact form built on jQuery and SimpleModal</li>
-	<li>&raquo; <a href='http://www.ericmmartin.com/projects/wp-paginate/'>WP-Paginate</a> - a simple and flexible pagination plugin for posts and comments</li>
+	<li>&raquo; <a href='https://github.com/studiofuel/simplemodal-login'>SimpleModal Login</a> on GitHub</li>
+	<li>&raquo; <a href="http://www.studiofuel.com/simplemodal-contact-form-smcf/">SimpleModal Contact Form (SMCF) - WordPress Plugin</a></li>
+	<li>&raquo; <a href="http://www.studiofuel.com/simplemodal-login/">WP-Paginate</a> - a simple and flexible pagination plugin for posts and comments</li>
 </ul>
 </div>
 
@@ -594,4 +599,3 @@ if (class_exists('SimpleModalLogin')) {
  * The format of this plugin is based on the following plugin template:
  * http://pressography.com/plugins/wordpress-plugin-template/
  */
-?>

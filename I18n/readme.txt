@@ -11,6 +11,4 @@ So for an Italian translation, the file name would be simplemodal-login-it_IT.mo
 
 Please *do not* translate URL's or placeholders, such as %s.
 
-Please send the translated file to eric@ericmmartin.com.
-
 Thanks!

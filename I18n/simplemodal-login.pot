@@ -1,13 +1,13 @@
-# Translation of the WordPress plugin SimpleModal Login 1.0 by Eric Martin.
-# Copyright (C) 2010 Eric Martin
+# Translation of the WordPress plugin SimpleModal Login 1.0 by Noah Cinquini.
+# Copyright 2014 Studio Fuel (http://www.studiofuel.com)
 # This file is distributed under the same license as the SimpleModal Login package.
-# Eric Martin <eric@ericmmartin.com>, 2010.
+# Noah Cinquini <noah@studiofuel.com>, 2014.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: SimpleModal Login 1.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/simplemodal-login\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/simplemodal-login\n"
 "POT-Creation-Date: 2010-07-24 05:20+0000\n"
 "PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -92,7 +92,7 @@ msgid ""
 msgstr ""
 
 #: simplemodal-login.php:197
-msgid "Like To Contribute?"
+msgid "Want To Contribute?"
 msgstr ""
 
 #: simplemodal-login.php:198
@@ -216,7 +216,7 @@ msgid "SimpleModal Login"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://www.ericmmartin.com/projects/simplemodal-login/"
+msgid "http://www.studiofuel.com/simplemodal-login/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -226,9 +226,9 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Eric Martin"
+msgid "Noah Cinquini"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://www.ericmmartin.com"
+msgid "http://www.studiofuel.com"
 msgstr ""
