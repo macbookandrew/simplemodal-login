@@ -579,7 +579,7 @@ if (!class_exists('SimpleModalLogin')) {
 			);
 
 			if ($this->users_can_register && $this->options['registration']) {
-				$output .= sprintf('| <a class="simplemodal-register" href="%s">%s</a>', site_url('wp-login.php?action=register', 'login'), __('Register', 'simplemodal-login'));
+				$output .= sprintf(' | <a class="simplemodal-register" href="%s">%s</a>', site_url('wp-login.php?action=register', 'login'), __('Register', 'simplemodal-login'));
 			}
 
 			$output .= '
