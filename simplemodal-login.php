@@ -483,6 +483,7 @@ if (!class_exists('SimpleModalLogin')) {
 		function registration_form() {
 			$output = do_shortcode( sprintf('
 <form name="registerform" id="registerform" action="%s" method="post">
+	<div class="close simplemodal-close">&times;</div>
 	<div class="title">%s</div>
 	<div class="simplemodal-login-fields">
 	[nextend_social_login]
