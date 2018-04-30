@@ -481,10 +481,14 @@ if (!class_exists('SimpleModalLogin')) {
 		 * @return string
 		 */
 		function registration_form() {
-			$output = sprintf('
+			$output = do_shortcode( sprintf('
 <form name="registerform" id="registerform" action="%s" method="post">
 	<div class="title">%s</div>
 	<div class="simplemodal-login-fields">
+	[nextend_social_login]
+	<p class="divider">
+		<span class="text">Or</span>
+	</p>
 	<p>
 		<label>%s<br />
 		<input type="text" name="first_name" placeholder="First Name" class="user_login input" value="" size="20" tabindex="10" /></label>
@@ -503,7 +507,7 @@ if (!class_exists('SimpleModalLogin')) {
 				__('First Name', 'simplemodal-login'),
 				__('Last Name', 'simplemodal-login'),
 				__('Email Address', 'simplemodal-login')
-			);
+			) );
 
 			ob_start();
 			do_action('register_form');
