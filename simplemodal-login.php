@@ -10,7 +10,7 @@ Author URI: http://www.studiofuel.com
 
 /*  Copyright 2014 Studio Fuel (http://www.studiofuel.com)
 
-    Plugin originally created by Eric Martin (http://www.ericmmartin.com)
+	Plugin originally created by Eric Martin (http://www.ericmmartin.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@ Author URI: http://www.studiofuel.com
 */
 
 if (!defined('ABSPATH')) {
-    exit;
+	exit;
 }
 
 /**
@@ -108,7 +108,7 @@ if (!class_exists('SimpleModalLogin')) {
 
 			//Actions
 			add_action('admin_menu', array(&$this, 'admin_menu_link'));
-            add_action('user_register', array(&$this, 'user_full_name'));
+			add_action('user_register', array(&$this, 'user_full_name'));
 
 			if (!is_admin()) {
 				// attempt to set the test cookie so that the user does not receive the WP cookie error
@@ -116,7 +116,7 @@ if (!class_exists('SimpleModalLogin')) {
 				setcookie( TEST_COOKIE, 'WP Cookie check', 0, COOKIEPATH, COOKIE_DOMAIN, $secure );
 				if ( SITECOOKIEPATH != COOKIEPATH )
 					setcookie( TEST_COOKIE, 'WP Cookie check', 0, SITECOOKIEPATH, COOKIE_DOMAIN, $secure );
-				
+
 				add_filter('login_redirect', array(&$this, 'login_redirect'), 5, 3);
 				add_filter('register', array(&$this, 'register'));
 				add_filter('loginout', array(&$this, 'login_loginout'));
@@ -344,10 +344,15 @@ if (!class_exists('SimpleModalLogin')) {
 		 * @return string
 		 */
 		function login_form() {
-			$output = sprintf('
+			$output = do_shortcode( sprintf('
 	<form name="loginform" id="loginform" action="%s" method="post">
+		<div class="close simplemodal-close">&times;</div>
 		<div class="title">%s</div>
 		<div class="simplemodal-login-fields">
+		[nextend_social_login]
+		<p class="divider">
+			<span class="text">Or</span>
+		</p>
 		<p>
 			<label>%s<br />
 			<input type="text" name="log" placeholder="Email Address" class="user_login input" value="" size="20" tabindex="10" /></label>
@@ -360,7 +365,7 @@ if (!class_exists('SimpleModalLogin')) {
 				__('Login', 'simplemodal-login'),
 				__('Username', 'simplemodal-login'),
 				__('Password', 'simplemodal-login')
-			);
+			) );
 
 			ob_start();
 			do_action('login_form');
@@ -498,7 +503,7 @@ if (!class_exists('SimpleModalLogin')) {
 		<label>%s<br />
 		<input type="text" name="last_name" placeholder="Last Name" class="user_login input" value="" size="20" tabindex="10" /></label>
 	</p>
-    <input type="hidden" name="user_login" />
+	<input type="hidden" name="user_login" />
 	<p>
 		<label>%s<br />
 		<input type="text" name="user_email" placeholder="Email Address" class="user_email input" value="" size="25" tabindex="20" /></label>
@@ -553,10 +558,15 @@ if (!class_exists('SimpleModalLogin')) {
 		 * @return string
 		 */
 		function reset_form() {
-			$output = sprintf('
+			$output = do_shortcode( sprintf('
 	<form name="lostpasswordform" id="lostpasswordform" action="%s" method="post">
+		<div class="close simplemodal-close">&times;</div>
 		<div class="title">%s</div>
 		<div class="simplemodal-login-fields">
+		[nextend_social_login]
+		<p class="divider">
+			<span class="text">Or</span>
+		</p>
 		<p>
 			<label>%s<br />
 			<input type="text" name="user_login" placeholder="Email Address" class="user_login input" value="" size="20" tabindex="10" /></label>
@@ -564,7 +574,7 @@ if (!class_exists('SimpleModalLogin')) {
 				site_url('wp-login.php?action=lostpassword', 'login_post'),
 				__('Reset Password', 'simplemodal-login'),
 				__('Username or Email Address:', 'simplemodal-login')
-			);
+			) );
 
 			ob_start();
 			do_action('lostpassword_form');
@@ -603,18 +613,18 @@ if (!class_exists('SimpleModalLogin')) {
 			return update_option($this->optionsName, $this->options);
 		}
 
-        /**
-         * Saves the user’s first/last names to the database
-         * @param integer $user_id WP user ID
-         */
-        function user_full_name( $user_id ) {
-            if ( ! empty( $_POST['first_name'] ) ) {
-                update_user_meta( $user_id, 'first_name', sanitize_text_field( $_POST['first_name'] ) );
-            }
-            if ( ! empty( $_POST['last_name'] ) ) {
-                update_user_meta( $user_id, 'last_name', sanitize_text_field( $_POST['last_name'] ) );
-            }
-        }
+		/**
+		 * Saves the user’s first/last names to the database
+		 * @param integer $user_id WP user ID
+		 */
+		function user_full_name( $user_id ) {
+			if ( ! empty( $_POST['first_name'] ) ) {
+				update_user_meta( $user_id, 'first_name', sanitize_text_field( $_POST['first_name'] ) );
+			}
+			if ( ! empty( $_POST['last_name'] ) ) {
+				update_user_meta( $user_id, 'last_name', sanitize_text_field( $_POST['last_name'] ) );
+			}
+		}
 
 	}
 }
